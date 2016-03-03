@@ -11,11 +11,16 @@ describe('origin',function(){
     assert.equal(origin.minword,50);
     assert.equal(origin.maxword,60);
   });
-  it('should have a default tag of Misc if it is not defined in the params', function(){
-    var origin = new Origin({author:"John Doe",title:"Story Title",genre:"",content:"This is the first bit of text",minword:50,maxword:60});
-    assert.equal(origin.tags.length, 1);
-    assert.equal(origin.tags[0],"Misc");
+  
+  it('should be able to have genre tags added to it',function(){
+    var origin = new Origin({genre:"Horror"});
+    origin.addTag("Science Fiction");
+    assert.deepEqual(origin.tags,["Horror","Science Fiction"]);
   });
 
+  it('should be able to return a word count of the content', function(){
+    var origin = new Origin({author:"John Doe",title:"Story Title",genre:"Misc",content:"There are seven words in this string",minword:50,maxword:60});
+    assert.equal(origin.wordCount(),7);
+  });  
 
 });
