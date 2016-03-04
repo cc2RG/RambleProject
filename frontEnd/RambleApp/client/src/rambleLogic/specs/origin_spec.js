@@ -26,6 +26,8 @@ describe('origin',function(){
   it('should be able to check that the word count is between the min and max criteria',function(){
     var origin = new Origin({author:"John Doe",title:"Story Title",genre:"Misc",content:"There are seven words in this string",minword:1,maxword:10});
     assert.equal(origin.checkMinMax(), true);
+    var origin = new Origin({author:"John Doe",title:"Story Title",genre:"Misc",content:"There are a few more words in this string, too many in fact!",minword:1,maxword:10});
+    assert.equal(origin.checkMinMax(), false);
   })
 
 
