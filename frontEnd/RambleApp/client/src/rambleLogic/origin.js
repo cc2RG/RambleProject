@@ -10,8 +10,19 @@ var Origin = function(params) {
 Origin.prototype = {
   addTag:function(tag){
     this.tags.push(tag);
+  },
+  cleanUp:function(){
+    var noSpecCharString = (this.content).replace(/[^\w\s]/gi, '');
+    return noSpecCharString.replace(/\s\s+/g, ' ')
+  },
+  wordCount:function(){
+    var string = this.cleanUp();
+    return string.split(" ").length;
+  },
+  checkMinMax:function(){
+    var count = this.wordCount();
+    
   }
-
 
 
 };

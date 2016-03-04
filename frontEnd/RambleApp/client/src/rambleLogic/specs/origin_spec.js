@@ -19,7 +19,7 @@ describe('origin',function(){
   });
 
   it('should be able to return a word count of the content', function(){
-    var origin = new Origin({author:"John Doe",title:"Story Title",genre:"Misc",content:"There are seven words in this string",minword:50,maxword:60});
+    var origin = new Origin({author:"John Doe",title:"Story Title",genre:"Misc",content:"There are seven words in this string",minword:1,maxword:10});
     assert.equal(origin.wordCount(),7);
   });  
 
