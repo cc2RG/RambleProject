@@ -21,7 +21,9 @@ Origin.prototype = {
   },
   checkMinMax:function(){
     var count = this.wordCount();
-    
+    if(count > this.minword && count < this.maxword){
+      return true;
+    }
   }
 
 
