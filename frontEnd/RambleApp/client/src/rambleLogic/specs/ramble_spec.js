@@ -19,4 +19,10 @@ describe('ramble',function(){
     assert.equal(rambleTwo.deadline, 1);
   });
 
+  it('should be able to add collaborators',function(){
+    var ramble = new Ramble({owner:"John Doe",deadline:4});
+    ramble.addCollaborator("Jane Doe");
+    assert.equal(ramble.collaborators.length, 2);
+    assert.equal(ramble.collaborators[1],"Jane Doe")
+  })
 })

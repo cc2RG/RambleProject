@@ -5,7 +5,9 @@ var Ramble = function(params){
 }
 
 Ramble.prototype = {
-
+  addCollaborator: function(user){
+    this.collaborators.push(user);
+  }
 }
 
 module.exports = Ramble;

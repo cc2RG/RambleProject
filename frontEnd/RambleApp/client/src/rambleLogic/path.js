@@ -11,9 +11,10 @@ Path.prototype = {
     var noSpecCharString = (this.content).replace(/[^\w\s]/gi, '');
     return noSpecCharString.replace(/\s\s+/g, ' ')
   },
-  wordCount:function(){
+  wCount:function(){
     var string = this.cleanUp();
-    return string.split(" ").length;
+    this. string.split(" ").length;
+  },
   checkValid:function(){}  
 
 };
