@@ -28,6 +28,8 @@ Path.prototype = {
   checkVotes: function(checkNum){
     if(this.votes >= checkNum){
       return true;
+    }else{
+      return false;
     } 
   }  
 
