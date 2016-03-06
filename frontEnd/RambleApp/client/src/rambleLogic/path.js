@@ -13,9 +13,23 @@ Path.prototype = {
   },
   wCount:function(){
     var string = this.cleanUp();
-    this. string.split(" ").length;
+    this.wordCount = string.split(" ").length;
   },
-  checkValid:function(){}  
+  checkWCount:function(checkNumOne,checkNumTwo){
+    if(this.wordCount >= checkNumOne && this.wordCount <= checkNumTwo){
+      return true;
+    }else{
+      return false;
+    }
+  },
+  addVote:function(){
+    this.votes = this.votes + 1;
+  },
+  checkVotes: function(checkNum){
+    if(this.votes >= checkNum){
+      return true;
+    } 
+  }  
 
 };
 

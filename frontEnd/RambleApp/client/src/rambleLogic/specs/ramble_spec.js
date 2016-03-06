@@ -24,5 +24,27 @@ describe('ramble',function(){
     ramble.addCollaborator("Jane Doe");
     assert.equal(ramble.collaborators.length, 2);
     assert.equal(ramble.collaborators[1],"Jane Doe")
+  });
+
+  it('Should have the name of the next person required to submit a path set to the first collaborator added to the ramble', function(){
+    var ramble = new Ramble({owner:"John Doe",deadline:4});
+    ramble.addCollaborator("Jane Doe");
+    ramble.firstSubmit()
+    assert.equal(ramble.currentSubmit,"Jane Doe")
+  });
+
+  it('Should be able to assign the next submitter',function(){
+    var ramble = new Ramble({owner:"John Doe",deadline:4});
+    ramble.addCollaborator("Jane Doe");
+    ramble.firstSubmit();
+    assert.equal(ramble.currentSubmit,"Jane Doe")
+    ramble.addSubmit();
+    ramble.addCollaborator("John Smith")
+    ramble.nextSubmit();
+    assert.equal(ramble.currentSubmit,"John Smith")
+    ramble.nextSubmit();
   })
+
+
+
 })
