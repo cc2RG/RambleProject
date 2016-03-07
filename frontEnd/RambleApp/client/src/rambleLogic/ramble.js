@@ -5,6 +5,7 @@ var Ramble = function(params){
   this.deadline = params.deadline || 1;
   this.currentSubmit = this.collaborators[(this.numOfSubmits) + 1] || "None";
   this.numOfSubmits = 0;
+  this.active = true;
 }
 
 Ramble.prototype = {
@@ -34,6 +35,9 @@ Ramble.prototype = {
     } else {
     this.currentSubmit = this.collaborators[currentSubmitIndex] 
     }
+  },
+  setActiveState: function(){
+    this.active = !this.active;
   }
 }
 

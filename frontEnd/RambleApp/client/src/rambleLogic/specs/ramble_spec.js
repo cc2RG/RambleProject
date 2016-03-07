@@ -40,7 +40,7 @@ describe('ramble',function(){
     var ramble = new Ramble({owner:"John Doe",deadline:4,maxCollaborators:4});
     ramble.addCollaborator("Jane Doe");
     ramble.firstSubmit()
-    assert.equal(ramble.currentSubmit,"Jane Doe")
+    assert.equal(ramble.currentSubmit,"Jane Doe");
   });
 
   it('Should be able to assign the next submitter',function(){
@@ -52,7 +52,12 @@ describe('ramble',function(){
     ramble.addSubmit();
     assert.equal(ramble.currentSubmit,"Jon Smith");
   })
-
+  it('should be able to set its state to active = true/false',function(){
+    var ramble = new Ramble({owner:"John Doe",deadline:4,maxCollaborators:4});
+    assert.equal(ramble.active, true);
+    ramble.setActiveState();
+    assert.equal(ramble.active, false);
+  })
 
 
 })
