@@ -39,3 +39,6 @@ var PathForm = React.createClass({
       );
   }
 });
+
+module.exports = PathForm;
+
