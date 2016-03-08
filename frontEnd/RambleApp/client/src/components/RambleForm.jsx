@@ -25,6 +25,7 @@ var RambleForm = React.createClass({
   },
   render: function(){
     return(
+      
       <form className="rambleForm" onSubmit={this.handleSubmit}>
         <input
           type="text"
@@ -43,8 +44,10 @@ var RambleForm = React.createClass({
           placeholder="Hours until next submit"
           value={this.state.deadline}
           onChange={this.handleDeadlineChange}
+        />  
         <input type="submit" value="Post" />
       </form>
+      
       );
   }
 

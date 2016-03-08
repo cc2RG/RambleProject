@@ -52,19 +52,20 @@ var OriginForm = React.createClass({
           placeholder="Type your text here!"
           value={this.state.content}
           onChange={this.handleContentChange}
-        <input type="submit" value="Post" />
+        />
         <input
           type="text"
           placeholder="Input min words"
           value={this.state.minWord}
           onChange={this.handleMinWordChange}
-        <input type="submit" value="Post" />
+        />
         <input
           type="text"
           placeholder="Input max words"
           value={this.state.maxWord}
           onChange={this.handleMaxWordChange}
-        <input type="submit" value="Post" />
+        />  
+        <input type="submit" value="Post"/>
       </form>
       );
   }

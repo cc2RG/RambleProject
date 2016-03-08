@@ -35,6 +35,7 @@ var PathForm = React.createClass({
           value={this.state.content}
           onChange={this.handleContentChange}
         />
+        <input type="submit" value="Post" />
       </form>  
       );
   }
