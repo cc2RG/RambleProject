@@ -49,7 +49,8 @@
 	var React = __webpack_require__(1);
 	var ReactDOM = __webpack_require__(158);
 	var Dispatcher = __webpack_require__(168).Dispatcher;
-	var RambleBox = __webpack_require__(160);
+	var RamblesBox = __webpack_require__(172);
+	var RambleDisplay = __webpack_require__(171);
 	var RambleForm = __webpack_require__(159);
 	var OriginBox = __webpack_require__(161);
 	var PathBox = __webpack_require__(162);
@@ -64,9 +65,7 @@
 	            null,
 	            'Hello'
 	        ),
-	        React.createElement(RambleBox, null),
-	        React.createElement(OriginBox, null),
-	        React.createElement(PathBox, null)
+	        React.createElement(RamblesBox, null)
 	    ), document.getElementById('app'));
 	};
 
@@ -19735,43 +19734,14 @@
 	module.exports = RambleForm;
 
 /***/ },
-/* 160 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	var React = __webpack_require__(1);
-	//var OriginBox = require('./OriginBox.jsx');
-	//var PathBox = require('./PathBox.jsx');
-	var Ramble = __webpack_require__(165);
-	var RambleForm = __webpack_require__(159);
-	var RambleBox = React.createClass({
-	  displayName: 'RambleBox',
-	
-	  render: function render() {
-	    return React.createElement(
-	      'div',
-	      { className: 'rambleBox' },
-	      React.createElement(
-	        'h1',
-	        null,
-	        'rambleBox says Hello!'
-	      ),
-	      React.createElement(RambleForm, null)
-	    );
-	  }
-	});
-	
-	module.exports = RambleBox;
-
-/***/ },
+/* 160 */,
 /* 161 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
 	var React = __webpack_require__(1);
-	var RambleBox = __webpack_require__(160);
+	var RambleBox = __webpack_require__(171);
 	var PathBox = __webpack_require__(162);
 	var OriginForm = __webpack_require__(167);
 	var Origin = __webpack_require__(164);
@@ -19802,7 +19772,7 @@
 	'use strict';
 	
 	var React = __webpack_require__(1);
-	var RambleBox = __webpack_require__(160);
+	var RambleBox = __webpack_require__(171);
 	var OriginBox = __webpack_require__(161);
 	var Path = __webpack_require__(163);
 	var PathForm = __webpack_require__(166);
@@ -20073,8 +20043,9 @@
 	        value: this.state.title,
 	        onChange: this.handleTitleChange
 	      }),
-	      React.createElement('input', {
-	        type: 'text',
+	      React.createElement('textarea', {
+	        rows: '5', cols: '50', name: 'OriginContentInput',
+	
 	        placeholder: 'Type your text here!',
 	        value: this.state.content,
 	        onChange: this.handleContentChange
@@ -20406,6 +20377,295 @@
 	
 	module.exports = invariant;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
+
+/***/ },
+/* 171 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	var React = __webpack_require__(1);
+	//var OriginBox = require('./OriginBox.jsx');
+	//var PathBox = require('./PathBox.jsx');
+	var Ramble = __webpack_require__(165);
+	var RambleForm = __webpack_require__(159);
+	var RambleDisplay = React.createClass({
+	  displayName: 'RambleDisplay',
+	
+	  render: function render() {
+	    return React.createElement(
+	      'div',
+	      { className: 'RambleDisplay' },
+	      React.createElement(
+	        'h1',
+	        null,
+	        'RambleDisplay says Hello!'
+	      ),
+	      React.createElement(RambleForm, null)
+	    );
+	  }
+	});
+	
+	module.exports = RambleDisplay;
+
+/***/ },
+/* 172 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	var React = __webpack_require__(1);
+	var Ramble = __webpack_require__(165);
+	var sampleJSON = __webpack_require__(173);
+	var OriginBox = __webpack_require__(161);
+	var RamblesBox = React.createClass({
+	  displayName: 'RamblesBox',
+	
+	
+	  getInitialState: function getInitialState() {
+	    return { rambles: sampleJSON, currentRamble: null };
+	  },
+	  setCurrentRamble: function setCurrentRamble(ramble) {
+	    this.setState({ currentRamble: ramble });
+	  },
+	
+	  render: function render() {
+	    return React.createElement(
+	      'div',
+	      null,
+	      React.createElement(
+	        'h4',
+	        null,
+	        'RamblesBox'
+	      ),
+	      React.createElement(OriginBox, null)
+	    );
+	  }
+	
+	});
+	
+	module.exports = RamblesBox;
+
+/***/ },
+/* 173 */
+/***/ function(module, exports) {
+
+	
+	 module.exports = [
+	 {
+	    "id":12,
+	    "owner": "John Doe",
+	    "collaborators":["John Doe","Jane Doe"],
+	    "maxCollaborators": 1,
+	    "deadline": 3,
+	    "currentSubmit": "John Doe",
+	    "numOfSubmits": 4,
+	    "active": true,
+	    "paths": [
+	              {
+	                "id":34,
+	                "author": "John Doe",
+	                "content": "This is the start of the story!",
+	                "votes": null,
+	                "parent_ID": null
+	              },
+	              {
+	                "id":37,
+	                "author": "Jane Doe",
+	                "content": "This is the second part of the story!",
+	                "votes": 2,
+	                "parent_ID": 34
+	              },
+	              {
+	                "id":42,
+	                "author": "John Doe",
+	                "content": "This is the third part of the story!",
+	                "votes": 2,
+	                "parent_ID": 37
+	              },
+	              {
+	                "id":44,
+	                "author": "Jane Doe",
+	                "content": "This is the fourth part of the story!",
+	                "votes": 2,
+	                "parent_ID": 42
+	              }
+	             ]
+	
+	  },
+	  {
+	    "id":55,
+	    "owner": "John Smith",
+	    "collaborators":["John Smith","Jane Smith","Bob Roberts"],
+	    "maxCollaborators": 4,
+	    "deadline": 3,
+	    "currentSubmit": "John Doe",
+	    "numOfSubmits": 6,
+	    "active": true,
+	    "paths": [
+	              {
+	                "id":57,
+	                "author": "John Smith",
+	                "content": "This is the first part of the story!",
+	                "votes": null,
+	                "parent_ID": null
+	              },
+	              {
+	                "id":58,
+	                "author": "Jane Doe",
+	                "content": "This is the second part of the story!",
+	                "votes": 3,
+	                "parent_ID": 57
+	              },
+	              {
+	                "id":59,
+	                "author": "Bob Roberts",
+	                "content": "This is the third part of the story!",
+	                "votes": 1,
+	                "parent_ID": 58
+	              },
+	              {
+	                "id":62,
+	                "author": "John Doe",
+	                "content": "This is the third part of the story!",
+	                "votes": 3,
+	                "parent_ID": 58
+	              },
+	              {
+	                "id":63,
+	                "author": "Jane Doe",
+	                "content": "This is the fourth part of the story!",
+	                "votes": 3,
+	                "parent_ID": 62
+	              },
+	              {
+	                "id":67,
+	                "author": "Bob Roberts",
+	                "content": "This is the fifth part of the story!",
+	                "votes": 1,
+	                "parent_ID": 63
+	              }
+	             ]
+	
+	  },
+	
+	    {
+	    "id":79,
+	    "owner": "John Doe",
+	    "collaborators":["John Doe","Jane Doe","Bob Roberts","James Archer"],
+	    "maxCollaborators": 7,
+	    "deadline": 8,
+	    "currentSubmit": "John Doe",
+	    "numOfSubmits": 20,
+	    "active": false,
+	    "paths": [
+	              {
+	                "id":81,
+	                "author": "John Doe",
+	                "content": "This is the first part of the story!",
+	                "votes": null,
+	                "parent_ID": null
+	              },
+	              {
+	                "id":82,
+	                "author": "Jane Doe",
+	                "content": "This is the second part of the story!",
+	                "votes": 1,
+	                "parent_ID": 81
+	              },
+	              {
+	                "id":83,
+	                "author": "Bob Roberts",
+	                "content": "This is the third part of the story!",
+	                "votes": 4,
+	                "parent_ID": 82
+	              },
+	              {
+	                "id":86,
+	                "author": "James Archer",
+	                "content": "This is the fourth part of the story!",
+	                "votes": 1,
+	                "parent_ID": 83
+	              },
+	              {
+	                "id":87,
+	                "author": "John Doe",
+	                "content": "This is the fourth part of the story!",
+	                "votes": 1,
+	                "parent_ID": 83
+	              },
+	              {
+	                "id":88,
+	                "author": "Jane Doe",
+	                "content": "This is the fourth part of the story!",
+	                "votes": 3,
+	                "parent_ID": 83
+	              },
+	              {
+	                "id":89,
+	                "author": "Bob Roberts",
+	                "content": "This is the fifth part of the story!",
+	                "votes": 4,
+	                "parent_ID": 88
+	              },
+	              {
+	                "id":91,
+	                "author": "James Archer",
+	                "content": "This is the sixth part of the story!",
+	                "votes": 1,
+	                "parent_ID": 89
+	              },
+	              {
+	                "id":92,
+	                "author": "John Doe",
+	                "content": "This is the sixth part of the story!",
+	                "votes": 3,
+	                "parent_ID": 91
+	              },
+	              {
+	                "id":94,
+	                "author": "Jane Doe",
+	                "content": "This is the seventh part of the story!",
+	                "votes": 3,
+	                "parent_ID": 92
+	              },
+	              {
+	                "id":95,
+	                "author": "Bob Roberts",
+	                "content": "This is the eighth part of the story!",
+	                "votes": 4,
+	                "parent_ID": 94
+	              },
+	              {
+	                "id":97,
+	                "author": "James Archer",
+	                "content": "This is the ninth part of the story!",
+	                "votes": 1,
+	                "parent_ID": 95
+	              },
+	              {
+	                "id":98,
+	                "author": "John Doe",
+	                "content": "This is the ninth part of the story!",
+	                "votes": 3,
+	                "parent_ID": 95
+	              },
+	              {
+	                "id":99,
+	                "author": "Jane Doe",
+	                "content": "This is the tenth part of the story!",
+	                "votes": 4,
+	                "parent_ID": 98
+	              },
+	              ]
+	  }
+	
+	
+	]
+	
+	
+	
+
 
 /***/ }
 /******/ ]);

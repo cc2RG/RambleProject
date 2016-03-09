@@ -1,5 +1,5 @@
 var React = require('react');
-var RambleBox = require('./RambleBox.jsx');
+var RambleBox = require('./RambleDisplay.jsx');
 var OriginBox = require('./OriginBox.jsx');
 var Path = require('../rambleLogic/path.js');
 var PathForm = require('./PathForm.jsx');

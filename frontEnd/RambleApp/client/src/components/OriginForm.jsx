@@ -47,8 +47,9 @@ var OriginForm = React.createClass({
           value={this.state.title}
           onChange={this.handleTitleChange}
         />
-        <input
-          type="text"
+        <textarea
+          rows="5" cols="50" name="OriginContentInput"
+
           placeholder="Type your text here!"
           value={this.state.content}
           onChange={this.handleContentChange}
